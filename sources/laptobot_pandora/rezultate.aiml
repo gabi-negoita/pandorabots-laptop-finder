@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    
+    
+    <!--REZULTATE-->
+	<topic name="REZULTATE">
+        <category>
+            <pattern>CALCULEAZA REZULTATE</pattern>
+            <template>    
+            <!--VERIFIC IN CAZ CA SUNT ZERO REZULTATE-->
+            <think><set name="zerorez">true</set></think>
+
+                <!--SETARE COUNT VALOARE INITIALA-->
+                <think><set name="count">1</set></think>
+                
+                <!--CREARE CAROUSEL-->
+                <carousel>
+     
+                    <condition name="count">
+                        <!--DACA COUNT AJUNGE LA 96 (95 de laptop-uri) -> LOOP-UL SE VA OPRI-->
+                        <li><value>101</value></li>
+                        
+                        <!--VERIFICARE CARACTERISTICI-->
+                        <li>
+                            <!--Verific BUGET-->
+                            <condition name="buget">
+                                
+                                <!--BUGET UNKNOWN-->
+                                <li value="unknown">
+
+                                    <!--Verific PRODUCATOR-->
+                                    <condition name="producator">
+                                        
+                                        <!--PRODUCATOR UNKNOWN-->
+                                        <li value="unknown">
+                                        
+                                        <!--Verific CATEGORIE-->
+                                        <condition name="categorie">
+                                            
+                                            <!--CATEGORIE UNKNOWN-->
+                                            <li value="unknown">
+                                                
+                                                <!--Verific DIAGONALA-->
+                                                <condition name="diagonala">
+                                                    
+                                                    <!--DIAGOANALA UNKNOWN-->
+                                                    <li value="unknown">
+                                                        
+                                                        <!--Verific REZOLUTIA-->
+                                                        <condition name="rezolutie">
+                                                            
+                                                            <!--REZOLUTIE UNKNOWN-->
+                                                            <li value="unknown">
+                                                                
+                                                                <!--Verific RATA REIMPROSPATARE-->
+                                                                <condition name="rata reimprospatare">
+                                                                    
+                                                                    <!--RATA REIMPROSPATARE UNKNOWN-->
+                                                                    <li value="unknown">
+                                                                        
+                                                                        <!--Verific PROCESOR-->
+                                                                        <condition name="procesor">
+                                                                            
+                                                                            <!--PROCESOR UNKOWN-->
+                                                                            <li value="unknown">
+                                                                                
+                                                                                <!--Verific PLACA VIDEO-->
+                                                                                <condition name="placa video">
+                                                                                    
+                                                                                    <!--PLACA VIDEO UNKOWN-->
+                                                                                    <li value="unknown">
+                                                                                       
+                                                                                        <!--Verific RAM-->
+                                                                                        <condition name="ram">
+                                                                                            
+                                                                                            <!--RAM UNKOWN-->
+                                                                                            <li value="unknown">
+                                                                                                
+                                                                                                <!--Verific HDD-->
+                                                                                                <condition name="hdd">
+                                                                                                    
+                                                                                                    <!--HDD UNKOWN-->
+                                                                                                    <li value="unknown">
+                                                                                                        
+                                                                                                        <!--Verific SSD-->
+                                                                                                        <condition name="ssd">
+                                                                                                            
+                                                                                                            <!--SSD UNKNOWN-->
+                                                                                                            <li value="unknown">
+                                                                                                                
+                                                                                                                <!--Verific SO-->
+                                                                                                                <condition name="so">
+                                                                                                                    
+                                                                                                                    <!--SO UNKOWN-->
+                                                                                                                    <li value="unknown">
+                                                                                                                        
+                                                                                                                        <!--AFISEZ TOATE LAPTOP-URILE-->
+                                                                                                                        <srai>SHOW LAPTOP</srai>
+                                                                                                                    </li>
+                                                                                                                    
+                                                                                                                    <!--SO IS KNOWN-->
+                                                                                                                    <li>
+                                                                                                                        <srai>CHECK SO</srai>
+                                                                                                                    </li>
+                                                                                                                    
+                                                                                                                </condition>
+                                                                                                            </li>
+                                                                                                            
+                                                                                                            <!--SSD IS KNOWN-->
+                                                                                                            <li>
+                                                                                                                <srai>CHECK SSD</srai>
+                                                                                                            </li>
+                                                                                                        </condition>
+                                                                                                    </li>
+                                                                                                    
+                                                                                                    <!--HDD IS KNOWN-->
+                                                                                                    <li>
+                                                                                                        <srai>CHECK HDD</srai>
+                                                                                                    </li>
+                                                                                                </condition>
+                                                                                            </li>
+                                                                                            
+    																						<!--RAM IS KNOWN-->
+                                                                                            <li>
+                                                                                                <srai>CHECK RAM</srai>
+                                                                                            </li>
+                                                                                        </condition>
+                                                                                    </li>
+    																				
+    																				<!--PLACA VIDEO IS KNOWN-->
+                                                                                    <li>
+                                                                                        <srai>CHECK PLACA VIDEO</srai>
+                                                                                    </li>
+                                                                                </condition>
+                                                                            </li>
+                                                                            
+    																		<!--PROCESOR IS KNOWN-->
+                                                                            <li>
+                                                                                <srai>CHECK PROCESOR</srai>
+                                                                            </li>
+                                                                        </condition>
+                                                                    </li>
+                                                                    
+    																<!--RATA REIMPROSPATARE IS KNOWN-->
+                                                                    <li>
+                                                                        <srai>CHECK RATA REIMPROSPATARE</srai>
+                                                                    </li>
+                                                                </condition>
+                                                            </li>
+                                                        
+    														<!--REZOLUTIA IS KNOWN-->
+                                                            <li>
+                                                                <srai>CHECK REZOLUTIE</srai>
+                                                            </li>
+                                                        </condition>
+                                                    </li>
+                                                    
+    												<!--DIAGONALA IS KNOWN-->
+                                                    <li>
+                                                        <srai>CHECK DIAGONALA</srai>
+                                                    </li>
+                                                </condition>
+                                            </li>
+                                            
+    										<!--CATEGORIE IS KNOWN-->
+                                            <li>
+                                                <srai>CHECK CATEGORIE</srai>
+                                            </li>
+                                        </condition>   
+                                    </li>
+                                    
+    								<!--PRODUCATOR IS KNOWN-->
+                                    <li>
+                                        <srai>CHECK PRODUCATOR</srai>
+                                    </li>
+                                </condition>    
+                                </li>
+                            
+    							<!--BUGET IS KNOWN-->
+                                <li>
+                                    <srai>CHECK PRODUCATOR</srai>
+                                    <condition name="buget">
+                                        <li value="unknown">
+                                            <!--Verific PRODUCATOR-->
+                                            <srai>CHECK PRODUCATOR</srai>
+                                        </li>
+                                        
+                                        <li>
+                                            <set name="topic">calcul</set>
+                                            <srai>calculeaza</srai>
+                                            <think>
+                                                <set name="bugetSet"><map name="bugetmapping"><map name="mbuget"><get name="count"/></map></map></set>
+                                                <set name="result"><srai>XLE <get name="bugetSet"/> XS <get name="bugetMapped"/></srai></set>
+                                            </think>
+                                            
+                                            <condition name="result">
+                                                <li value="TRUE">
+                                                    <!--Verific PRODUCATOR-->
+                                                    <srai>CHECK PRODUCATOR</srai>
+                                                </li>
+                                            </condition>
+                                        </li>
+                                    </condition>
+                                </li>
+                            </condition>
+                            
+                            <!--INCREMENTARE COUNT -> ITERATIE NOUA-->
+                            <think><set name="count"><map><name>successor</name><get name="count"/></map></set></think>
+                          <loop/>
+                        </li>
+        
+                    </condition>
+                </carousel>
+                <!--SFARSIT CAROUSEL-->
+
+                <!--VERIFIC CAZ IN CARE NU S-A GASIT NICIUN REZULTAT-->
+                <condition name="zerorez">
+                        <li value="true">
+                            <delay>1</delay>
+                            Nu a fost gasit niciun rezultat cu urmatoarele specificatii:
+                            <ul>
+                                <li>
+                                    <condition name="buget">
+                                        <li value="unknown"></li>
+                                        <li>Buget : <get name="buget"/> lei</li>
+                                    </condition>
+                                </li>
+                                <li>
+                                    <condition name="producator">
+                                        <li value="unknown"></li>
+                                        <li>Producator : <uppercase><get name="producator"/></uppercase></li>
+                                    </condition>
+                                </li>
+                                <li>
+                                    <condition name="categorie">
+                                        <li value="unknown"></li>
+                                        <li>Categorie : <uppercase><get name="categorie"/></uppercase></li>
+                                    </condition>
+                                </li>
+                                <li>
+                                    <condition name="diagonala">
+                                        <li value="unknown"></li>
+                                        <li>Diagonala : <get name="diagonala"/>"</li>
+                                    </condition>
+                                </li>
+                                <li>
+                                    <condition name="rezolutie">
+                                        <li value="unknown"></li>
+                                        <li>Rezolutie : <get name="rezolutie"/> pixeli</li>
+                                    </condition>
+                                </li>
+                                <li>
+                                    <condition name="rata reimprospatare">
+                                        <li value="unknown"></li>
+                                        <li>Rata de reimprospatare : <get name="rata reimprospatare"/> Hz</li>
+                                    </condition>
+                                </li>
+                                <li>
+                                    <condition name="procesor">
+                                        <li value="unknown"></li>
+                                        <li>Procesor (CPU) : <uppercase><get name="procesor"/></uppercase></li>
+                                    </condition>
+                                </li>
+                                <li>
+                                    <condition name="placa video">
+                                        <li value="unknown"></li>
+                                        <li>Placa video (GPU) : <uppercase><get name="placa video"/></uppercase></li>
+                                    </condition>
+                                </li>
+                                <li>
+                                    <condition name="ram">
+                                        <li value="unknown"></li>
+                                        <li>Capacitate RAM : <get name="ram"/> GB</li>
+                                    </condition>
+                                </li>
+
+                                <li>
+                                    <condition name="hdd">
+                                        <li value="unknown"></li>
+                                        <li>Hard Disk Drive (HDD) : <uppercase><get name="hdd"/></uppercase></li>
+                                    </condition>
+                                </li>
+                                <li>
+                                    <condition name="ssd">
+                                        <li value="unknown"></li>
+                                        <li>Solid State Drive (SSD) : <uppercase><get name="ssd"/></uppercase></li>
+                                    </condition>
+                                </li>
+                                <li>
+                                    <condition name="so">
+                                        <li value="unknown"></li>
+                                        <li>Sistem de operare : <uppercase><get name="so"/></uppercase></li>     
+                                    </condition>
+                                </li>
+                            </ul>
+                        </li>
+                    </condition>
+            </template>
+        </category>
+
+        <category>
+            <pattern>CHECK PRODUCATOR</pattern>
+            <template>
+                <condition name="producator">
+                    <li value="unknown">
+                        <!--Verific CATEGORIE-->
+                        <srai>CHECK CATEGORIE</srai>
+                    </li>
+                    
+                    <li>
+                        <think><set name="temp producator"><map name="mproducator"><get name="count"/></map></set></think>
+                        <condition name="temp producator">
+                            <li><value><get><name>producator</name></get></value>
+                                <!--Verific CATEGORIE-->
+                                <srai>CHECK CATEGORIE</srai>
+                            </li>
+                        </condition>
+                    </li>
+                </condition>
+            </template>
+        </category>
+        
+        
+        <category>
+            <pattern>CHECK CATEGORIE</pattern>
+            <template>
+                <condition name="categorie">
+                    <li value="unknown">
+                        <!--Verific DIAGONALA-->
+                        <srai>CHECK DIAGONALA</srai>
+                    </li>
+                    
+                    <li>
+                        <think><set name="temp categorie"><map name="mcategorie"><get name="count"/></map></set></think>
+                        <condition name="temp categorie">
+                            <li><value><get><name>categorie</name></get></value>
+                                <!--Verific DIAGONALA-->
+                                <srai>CHECK DIAGONALA</srai>
+                            </li>
+                        </condition>
+                    </li>
+                </condition>
+            </template>
+        </category>
+        
+        
+        <category>
+            <pattern>CHECK DIAGONALA</pattern>
+            <template>
+                <condition name="diagonala">
+                    <li value="unknown">
+                        <!--Verific REZOLUTIA-->
+                        <srai>CHECK REZOLUTIE</srai>
+                    </li>
+                    
+                    <li>
+                        <think><set name="temp diagonala"><map name="mdiagonala"><get name="count"/></map></set></think>
+                        <condition name="temp diagonala">
+                            <li><value><get><name>diagonala</name></get></value>
+                                <!--Verific REZOLUTIA-->
+                                <srai>CHECK REZOLUTIE</srai>
+                            </li>
+                        </condition>
+                    </li>
+                </condition>
+            </template>
+        </category>
+        
+        
+        <category>
+            <pattern>CHECK REZOLUTIE</pattern>
+            <template>
+                <condition name="rezolutie">
+                    <li value="unknown">
+                        <!--Verific RATA REIMPROSPATARE-->
+                        <srai>CHECK RATA REIMPROSPATARE</srai>
+                    </li>
+                    
+                    <li>
+                        <think><set name="temp rezolutie"><map name="mrezolutie"><get name="count"/></map></set></think>
+                        <condition name="temp rezolutie">
+                            <li><value><get><name>rezolutie</name></get></value>
+                                <!--Verific RATA REIMPROSPATARE-->
+                                <srai>CHECK RATA REIMPROSPATARE</srai>
+                            </li>
+                        </condition>
+                    </li>
+                </condition>
+            </template>
+        </category>
+        
+        
+        <category>
+            <pattern>CHECK RATA REIMPROSPATARE</pattern>
+            <template>
+                <condition name="rata reimprospatare">
+                    <li value="unknown">
+                        <!--Verific PROCESOR-->
+                        <srai>CHECK PROCESOR</srai>
+                    </li>
+                    
+                    <li>
+                        <think><set name="temp rata reimprospatare"><map name="mratareimprospatare"><get name="count"/></map></set></think>
+                        <condition name="temp rata reimprospatare">
+                            <li><value><get><name>rata reimprospatare</name></get></value>
+                                <!--Verific PROCESOR-->
+                                <srai>CHECK PROCESOR</srai>
+                            </li>
+                        </condition>
+                    </li>
+                </condition>
+            </template>
+        </category>
+        
+        
+        <category>
+            <pattern>CHECK PROCESOR</pattern>
+            <template>
+                <condition name="procesor">
+                    <li value="unknown">
+                        <!--Verific PLACA VIDEO-->
+                        <srai>CHECK PLACA VIDEO</srai>
+                    </li>
+                    
+                    <li>
+                        <think><set name="temp procesor"><map name="mprocesor"><get name="count"/></map></set></think>
+                        <condition name="temp procesor">
+                            <li><value><get><name>procesor</name></get></value>
+                                <!--Verific PLACA VIDEO-->
+                                <srai>CHECK PLACA VIDEO</srai>
+                            </li>
+                        </condition>
+                    </li>
+                </condition>
+                
+            </template>
+        </category>
+        
+        
+        <category>
+            <pattern>CHECK PLACA VIDEO</pattern>
+            <template>
+                <condition name="placa video">
+                    <li value="unknown">
+                        <!--Verific RAM-->
+                        <srai>CHECK RAM</srai>
+                    </li>
+                    
+                    <li>
+                        <think><set name="temp placa video"><map name="mplacavideo"><get name="count"/></map></set></think>
+                        <condition name="temp placa video">
+                            <li><value><get><name>placa video</name></get></value>
+                                <!--Verific RAM-->
+                                <srai>CHECK RAM</srai>
+                            </li>
+                        </condition>
+                    </li>
+                </condition>
+            </template>
+        </category>
+        
+        
+        <category>
+            <pattern>CHECK RAM</pattern>
+            <template>
+                <condition name="ram">
+                    <li value="unknown">
+                        <!--Verific HDD-->
+                        <srai>CHECK HDD</srai>
+                    </li>
+                    
+                    <li>
+                        <think><set name="temp ram"><map name="mram"><get name="count"/></map></set></think>
+                        <condition name="temp ram">
+                            <li><value><get><name>ram</name></get></value>
+                                <!--Verific HDD-->
+                                <srai>CHECK HDD</srai>
+                            </li>
+                        </condition>
+                    </li>
+                </condition>
+            </template>
+        </category>
+    
+    
+        <category>
+            <pattern>CHECK HDD</pattern>
+            <template>
+                <condition name="hdd">
+                    <li value="unknown">
+                        <!--Verific SSD-->
+                        <srai>CHECK SSD</srai>
+                    </li>
+                    
+                    <li>
+                        <think><set name="temp hdd"><map name="mhdd"><get name="count"/></map></set></think>
+                        <condition name="temp hdd">
+                            <li><value><get><name>hdd</name></get></value>
+                                <!--Verific SSD-->
+                                <srai>CHECK SSD</srai>
+                            </li>
+                        </condition>
+                    </li>
+                </condition>
+            </template>
+        </category>
+    
+    
+        <category>
+            <pattern>CHECK SSD</pattern>
+            <template>
+                <condition name="ssd">
+                    <li value="unknown">
+                        <!--Verific SO-->
+                        <srai>CHECK SO</srai>
+                    </li>
+                    
+                    <li>
+                        <think><set name="temp ssd"><map name="mssd"><get name="count"/></map></set></think>
+                        <condition name="temp ssd">
+                            <li><value><get><name>ssd</name></get></value>
+                                <!--Verific SO-->
+                                <srai>CHECK SO</srai>
+                            </li>
+                        </condition>
+                    </li>
+                </condition>
+            </template>
+        </category>
+        
+        
+        <category>
+            <pattern>CHECK SO</pattern>
+            <template>
+                <condition name="so">
+                    <li value="unknown">
+                        <!--AFISEZ REZULTATE-->
+                        <srai>SHOW LAPTOP</srai>
+                    </li>
+                    
+                    <li>
+                        <think><set name="temp so"><map name="mso"><get name="count"/></map></set></think>
+                        <condition name="temp so">
+                            <li><value><get><name>so</name></get></value>
+                                <!--AFISEZ REZULTATE-->
+                                <srai>SHOW LAPTOP</srai>
+                            </li>
+                        </condition>
+                    </li>
+                </condition>
+            </template>
+        </category>
+        
+         
+        <category>
+            <pattern>SHOW LAPTOP</pattern>
+            <template>
+                <think><set name="zerorez">false</set></think>
+                <srai>CARD <map name="imagelink"><get name="count"/></map> <map name="link"><get name="count"/></map> <map name="model"><get name="count"/></map></srai>
+            </template>
+        </category>
+        
+        
+        <category>
+            <!-- CARD <image_url> <model> <url> -->
+            <pattern>CARD * * *</pattern>
+            <template>
+                <card>
+                    <image><star index="1"/></image>
+                    <title><star index="3"/></title>
+                    <subtitle>Notebook / Laptop</subtitle>
+                    <button>
+                        <text>Vezi mai multe detalii!</text>
+                        <url><star index="2"/></url>
+                    </button>
+                </card>
+            </template>
+        </category>
+        
+	</topic>
+
+
+</aiml>

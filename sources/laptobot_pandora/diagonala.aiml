@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+    <!--DIAGONALA LAPTOP-->
+	<topic name="DIAGONALA">
+	    
+	    
+	    <!--RASPUNS AFIRMATIV-->
+    	<category>
+           <pattern>^ <set>afirmativ</set> ^</pattern>
+           <template>
+                <delay>1</delay>
+                La ce diagonala v-ati gandit
+                 <reply>
+                    <text>13.3"</text>
+                    <postback>13 3 inch</postback>
+                </reply>
+                
+                 <reply>
+                    <text>14"</text>
+                    <postback>14 inch</postback>
+                </reply>
+                
+                 <reply>
+                    <text>15.6"</text>
+                    <postback>15 6 inch</postback>
+                </reply>
+                
+                 <reply>
+                    <text>17.3"</text>
+                    <postback>17 3 inch</postback>
+                </reply>
+                ? Va rog sa alegeti una din variante.
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Va rog sa alegeti una din variante</that>
+            <pattern>13 3 inch</pattern>
+            <template>
+                <!--SETARE DIAGONALA-->
+	            <think><set name="diagonala">13.3</set></think>
+	            
+                <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE DIAGONALA AM ALES</pattern>
+                        <template>Mi-ati spus ca preferati laptop-uri cu diagonala de 13.3".</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Diagonala de 13.3". Buna alegere! <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Va rog sa alegeti una din variante</that>
+            <pattern>14 inch</pattern>
+            <template>
+                <!--SETARE DIAGONALA-->
+	            <think><set name="diagonala">14</set></think>
+	            
+                <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE DIAGONALA AM ALES</pattern>
+                        <template>Mi-ati spus ca preferati laptop-uri cu diagonala de 14".</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Diagonala de 14". O alegere inteleapta! <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Va rog sa alegeti una din variante</that>
+            <pattern>15 6 inch</pattern>
+            <template>
+                <!--SETARE DIAGONALA-->
+	            <think><set name="diagonala">15.6</set></think>
+	            
+               <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE DIAGONALA AM ALES</pattern>
+                        <template>Mi-ati spus ca preferati laptop-uri cu diagonala de 15.6".</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Diagonala de 15.6" este regasita pe majoritatea laptop-urilor. <srai>AFISEAZA TOT SAU CONTINUA</srai>
+
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Va rog sa alegeti una din variante</that>
+            <pattern>17 3 inch</pattern>
+            <template>
+                <!--SETARE DIAGONALA-->
+	            <think><set name="diagonala">17.3</set></think>
+	            
+               <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE DIAGONALA AM ALES</pattern>
+                        <template>Mi-ati spus ca preferati laptop-uri cu diagonala de 17.3".</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Diagonala de 17.3". O alegere indrazneata! <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Va rog sa alegeti una din variante</that>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Nu am putut gasi aceasta diagonala in baza de date
+                 <reply>
+                    <text>13.3"</text>
+                    <postback>13 3 inch</postback>
+                </reply>
+                
+                 <reply>
+                    <text>14"</text>
+                    <postback>14 inch</postback>
+                </reply>
+                
+                 <reply>
+                    <text>15.6"</text>
+                    <postback>15 6 inch</postback>
+                </reply>
+                
+                 <reply>
+                    <text>17.3"</text>
+                    <postback>17 3 inch</postback>
+                </reply>
+                . Va rog sa alegeti una din variante.
+            </template>
+        </category>
+        
+        
+	    <!--RASPUNS NEGATIV-->
+	    <category>
+	        <pattern>^ <set>negativ</set> ^</pattern>
+	        <template>
+                <delay>1</delay>
+	             <!--SETARE DIAGONALA-->
+	            <think><set name="diagonala">unknown</set></think>
+	            
+               <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE DIAGONALA AM ALES</pattern>
+                        <template>Nu ati avut nicio preferinta legata de diagonala.</template>
+                    </category>
+                </learn>
+                
+                In regula, <lowercase><srai>AFISEAZA TOT SAU CONTINUA</srai></lowercase>
+	        </template>
+        </category>
+        
+        <!--ALT RASPUNS DECAT AFIRMATIV SAU NEGATIV-->
+        <category>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Va rog sa raspundeti cu DA sau NU.
+            </template>
+        </category>
+        
+        
+        <!--AFISEAZA TOT SAU CONTINUA-->
+        <category>
+            <pattern>AFISEAZA TOT SAU CONTINUA</pattern>
+            <template>
+                Continuati cu urmatoarea categorie?
+            </template>
+        </category>
+        
+        <!--CONTINUARE-->
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^ <set>afirmativ</set> ^</pattern>
+            <template>
+                <!--IESIRE DIN TOPIC-->
+                <think>
+                    <set name="topic">*</set>
+                </think>
+                
+                <!--CONTINUARE CU REZOLUTIE LAPTOP-->
+                <srai>REZOLUTIE LAPTOP</srai>
+            </template>
+        </category>
+        
+        <!--AFISEAZA REZULTATE-->
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^ <set>negativ</set> ^</pattern>
+            <template>
+                <!--IESIRE DIN TOPIC-->
+                <think>
+                    <set name="topic">*</set>
+                </think>
+                
+                <!--AFISEZ REZULTATE-->
+                <srai>REZULTATE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Va rog sa raspundeti cu DA sau NU.
+                <split/>
+                Deci, <lowercase><srai>AFISEAZA TOT SAU CONTINUA</srai></lowercase>
+            </template>
+        </category>
+
+	</topic>
+</aiml>

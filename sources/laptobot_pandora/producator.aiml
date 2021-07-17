@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    
+    
+    <!--PRODICATOR PENTRU LAPTOP-->
+    <topic name="PRODUCATOR">
+        <!--RASPUNS AFIRMATIV-->
+        <category>
+            <pattern>^ <set>afirmativ</set> ^</pattern>
+            <template>
+                <delay>1</delay>
+                In regula. Ce producator ati prefera?
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Ce producator ati prefera</that>
+            <pattern><set>producatori</set></pattern>
+            <template>
+                <!--SETARE PRODUCATOR-->
+                <think>
+                    <set name="producator"><star /></set>
+                </think>
+                
+                 <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE PRODUCATOR AM ALES</pattern>
+                        <template>Mi-ati spus ca preferati <eval><uppercase><star/></uppercase></eval>.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Deci, producatorul este <uppercase><get name="producator" /></uppercase>. <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Ce producator ati prefera</that>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Nu am gasit acest producator in baza de date.
+                
+                <delay>1</delay>
+                Va rog sa introduceti altul (dell, lenovo, asus etc).
+                
+                <delay>1</delay>
+                Deci, ce producator ati prefera?
+            </template>
+        </category>
+        
+        
+        <!--RASPUNS NEGATIV-->
+        <category>
+            <pattern>^ <set>negativ</set> ^</pattern>
+            <template>
+                <!--SETARE PRODUCATOR-->
+                <think>
+                    <set name="producator">unknown</set>
+                </think>
+                
+                <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE PRODUCATOR AM ALES</pattern>
+                        <template>Nu ati ales niciun producator.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                In regula, <lowercase><srai>AFISEAZA TOT SAU CONTINUA</srai></lowercase>
+            </template>
+        </category>
+        
+        
+        <!--ALT RASPUNS DECAT AFIRMATIV SAU NEGATIV-->
+        <category>
+            <pattern>*</pattern>
+            <template>
+                Va rog sa raspundeti cu DA sau NU.
+            </template>
+        </category>
+        
+        
+        <!--AFISEAZA TOT SAU CONTINUA-->
+        <category>
+            <pattern>AFISEAZA TOT SAU CONTINUA</pattern>
+            <template>
+                Continuati cu urmatoarea categorie?
+            </template>
+        </category>
+        
+        <!--CONTINUARE-->
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^ <set>afirmativ</set> ^</pattern>
+            <template>
+                <!--IESIRE DIN TOPIC-->
+                <think>
+                    <set name="topic">*</set>
+                </think>
+                
+                <!--CONTINUARE CU CATEGORIE LAPTOP-->
+                <srai>CATEGORIE LAPTOP</srai>
+            </template>
+        </category>
+        
+        <!--AFISEAZA REZULTATE-->
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^ <set>negativ</set> ^</pattern>
+            <template>
+                <!--IESIRE DIN TOPIC-->
+                <think>
+                    <set name="topic">*</set>
+                </think>
+                
+                <!--AFISEZ REZULTATE-->
+                <srai>REZULTATE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Va rog sa raspundeti cu DA sau NU.
+                <split/>
+                Deci, <lowercase><srai>AFISEAZA TOT SAU CONTINUA</srai></lowercase>
+            </template>
+        </category>
+    </topic>
+    
+    
+</aiml>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+    <!--SO PENTRU LAPTOP-->
+	<topic name="SO">
+	    
+	    
+	    <!--RASPUNS AFIRMATIV-->
+    	<category>
+           <pattern>^ <set>afirmativ</set> ^</pattern>
+           <template>
+                <delay>1</delay>
+                Ce sistem de operare ati prefera
+                <reply>
+                    <text>Windows 10</text>
+                    <postback>windows10</postback>
+                </reply>
+                
+                <reply>
+                    <text>Linux</text>
+                    <postback>linux</postback>
+                </reply>
+                
+                <reply>
+                    <text>FreeDOS</text>
+                    <postback>freedos</postback>
+                </reply>
+                
+                <reply>
+                    <text>Endless OS</text>
+                    <postback>endlessos</postback>
+                </reply>
+            
+                <reply>
+                    <text>Mac OS</text>
+                    <postback>macos</postback>
+                </reply>
+                ? Va rog sa alegeti un sistem de operare.
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Va rog sa alegeti un sistem de operare</that>
+            <pattern>windows10</pattern>
+            <template>
+                <!--SETARE SO-->
+	            <think><set name="so">windows10</set></think>
+	            
+	            <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE SISTEM DE OPERARE AM ALES</pattern>
+                        <template>Ati ales Windows 10.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Am inteles. Sa vad daca am gasit vreun laptop cu aceste caracteristici. <srai>AFISEAZA REZULTATE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <that>Va rog sa alegeti un sistem de operare</that>
+            <pattern>linux</pattern>
+            <template>
+                <!--SETARE SO-->
+	            <think><set name="so">linux</set></think>
+	            
+	            <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE SISTEM DE OPERARE AM ALES</pattern>
+                        <template>Ati ales Linux.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Am inteles. Sa vad daca am gasit vreun laptop cu aceste specificatii. <srai>AFISEAZA REZULTATE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <that>Va rog sa alegeti un sistem de operare</that>
+            <pattern>freedos</pattern>
+            <template>
+                <!--SETARE SO-->
+	            <think><set name="so">freedos</set></think>
+	            
+	            <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE SISTEM DE OPERARE AM ALES</pattern>
+                        <template>Ati ales FreeDOS.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Am inteles. Sa vad daca am gasit vreun laptop. <srai>AFISEAZA REZULTATE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <that>Va rog sa alegeti un sistem de operare</that>
+            <pattern>endlessos</pattern>
+            <template>
+                <!--SETARE SO-->
+	            <think><set name="so">endlessos</set></think>
+	            
+	            <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE SISTEM DE OPERARE AM ALES</pattern>
+                        <template>Ati ales Endless OS.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Am inteles. Voi cauta laptop-uri cu aceste caracteristici. <srai>AFISEAZA REZULTATE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <that>Va rog sa alegeti un sistem de operare</that>
+            <pattern>macos</pattern>
+            <template>
+                <!--SETARE SO-->
+	            <think><set name="so">macos</set></think>
+	            
+	            <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE SISTEM DE OPERARE AM ALES</pattern>
+                        <template>Ati ales Mac OS.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Am inteles. Voi cauta laptop-uri cu aceste specificatii. <srai>AFISEAZA REZULTATE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <that>Va rog sa alegeti un sistem de operare</that>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Nu avem acest sistem de operare
+                <reply>
+                    <text>Windows 10</text>
+                    <postback>windows10</postback>
+                </reply>
+                
+                <reply>
+                    <text>Linux</text>
+                    <postback>linux</postback>
+                </reply>
+                
+                <reply>
+                    <text>FreeDOS</text>
+                    <postback>freedos</postback>
+                </reply>
+                
+                <reply>
+                    <text>Endless OS</text>
+                    <postback>endlessos</postback>
+                </reply>
+                
+                <reply>
+                    <text>Mac OS</text>
+                    <postback>macos</postback>
+                </reply>
+                . Va rog sa alegeti un sistem de operare.
+            </template>
+        </category>
+        
+	    <!--RASPUNS NEGATIV-->
+	    <category>
+	        <pattern>^ <set>negativ</set> ^</pattern>
+	        <template>
+                <delay>1</delay>
+	            In regula, voi incerca sa gasesc laptop-uri cu aceste caracteristici. <srai>AFISEAZA REZULTATE</srai>
+	        </template>
+        </category>
+        
+        <!--ALT RASPUNS DECAT AFIRMATIV SAU NEGATIV-->
+        <category>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Va rog sa raspundeti cu DA sau NU.
+            </template>
+        </category>
+        
+        <category>
+            <pattern>AFISEAZA REZULTATE</pattern>
+            <template>
+                <!--IESIRE DIN TOPIC-->
+                <think>
+                    <set name="topic">*</set>
+                </think>
+                
+                <!--AFISEZ REZULTATE-->
+                <srai>REZULTATE</srai>
+            </template>
+        </category>
+        
+	</topic>
+</aiml>

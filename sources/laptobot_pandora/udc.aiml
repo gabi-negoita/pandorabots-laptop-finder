@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+    
+    <!--udc : Ultimate Default Category-->
+    <!--RASPUNS IMPLICIT - NICIO POTRIVIRE GASITA-->
+    <category>
+        <pattern>*</pattern>
+        <template>
+            <delay>1</delay>
+            <random>
+                <li>Puteti reformula, va rog?</li>
+                <li>Nu stiu cum sa raspund la asta.</li>
+                <li>Nu am inteles ce ati vrut sa spuneti.</li>
+            </random>
+        </template>
+    </category>
+    <!--TESTAT-->
+    
+    
+    <!--MESAJ DE SALUT-->
+    <category>
+        <pattern>^ <set>salutari</set> ^</pattern>
+        <template>
+            <delay>1</delay>
+            Salut!
+            
+            <delay>1</delay>
+            Sunt aici sa va ajut sa va gasiti laptop-ul dorit.
+            
+            <delay>1</delay>
+            Voi avea nevoie sa-mi raspundeti la cateva intrebari.
+          
+            <!--INITIALIZARE VARIBILE-->
+            <think>
+                <set name="temp categorie">unknown</set>
+                <set name="temp producator">unknown</set>
+                <set name="so">unknown</set>
+                <set name="ssd">unknown</set>
+                <set name="hdd">unknown</set>
+                <set name="ram">unknown</set>
+                <set name="placa video">unknown</set>
+                <set name="procesor">unknown</set>
+                <set name="rata reimprospatare">unknown</set>
+                <set name="rezolutie">unknown</set>
+                <set name="diagonala">unknown</set>
+                <set name="categorie">unknown</set>
+                <set name="producator">unknown</set>
+                <set name="temp categorie">unknown</set>
+            </think>
+            
+            <!--CONTINUARE CU PRODUCATOR LAPTOP-->
+
+            <delay></delay>
+            <srai>PRODUCATOR LAPTOP</srai>            
+        </template>
+    </category>
+    <!--TESTAT-->
+    
+    
+    <!--PREFERINTA BUGET LAPTOP-->
+    <category>
+        <pattern>BUGET LAPTOP</pattern>
+        <template>
+            <delay>1</delay>
+            Aveti un buget in care trebuie sa va incadrati?
+            
+            <think>
+                <set name="topic">BUGET</set>
+            </think>
+        </template>
+    </category>
+    <!--TESTAT-->
+    
+    
+    <!--PREFERINTA PRODUCATOR LAPTOP-->
+    <category>
+        <pattern>PRODUCATOR LAPTOP</pattern>
+        <template>
+            <delay>1</delay>
+            Aveti vreo preferinta legata de producator?
+            
+            <think>
+                <set name="topic">PRODUCATOR</set>
+            </think>
+        </template>
+    </category>
+    <!--TESTAT-->
+    
+    
+    <!--PREFERINTA CATEGORIE LAPTOP-->
+    <category>
+        <pattern>CATEGORIE LAPTOP</pattern>
+        <template>
+            <delay>1</delay>
+            Aveti vreo preferinta legata categoria laptop-ului?
+            
+            <think>
+                <set name="topic">CATEGORIE</set>
+            </think>
+        </template>
+    </category>
+    <!--TESTAT-->
+
+    
+    <!--PREFERINTA DIAGONALA LAPTOP-->
+    <category>
+        <pattern>DIAGONALA LAPTOP</pattern>
+        <template>
+            <delay>1</delay>
+            Aveti vreo preferinta legata de diagonala laptop-ului?
+            <think>
+                <set name="topic">DIAGONALA</set>
+            </think>
+        </template>
+    </category>
+    <!--TESTAT-->
+
+    
+    <!--PREFERINTA REZOLUTIE LAPTOP-->
+    <category>
+        <pattern>REZOLUTIE LAPTOP</pattern>
+        <template>
+            <delay>1</delay>
+            Aveti vreo preferinta legata de rezolutia laptop-ului?
+            <think>
+                <set name="topic">REZOLUTIE</set>
+            </think>
+        </template>
+    </category>
+    <!--TESTAT-->
+    
+    
+    <!--PREFERINTA RATA REIMPROSPATARE LAPTOP-->
+    <category>
+        <pattern>RATA REIMPROSPATARE LAPTOP</pattern>
+        <template>
+            <delay>1</delay>
+            Aveti vreo preferinta legata de rata de reimprospatare a laptop-ului?
+            <think>
+                <set name="topic">RATA REIMPROSPATARE</set>
+            </think>
+        </template>
+    </category>
+    <!--TESTAT-->
+    
+    
+    <!--PREFERINTA PROCESOR LAPTOP-->
+    <category>
+        <pattern>PROCESOR LAPTOP</pattern>
+        <template>
+            <delay>1</delay>
+            Aveti vreo preferinta legata de procesor (CPU)?
+            <think>
+                <set name="topic">PROCESOR</set>
+            </think>
+        </template>
+    </category>
+    <!--TESTAT-->
+    
+    
+    <!--PREFERINTA PLACA VIDEO LAPTOP-->
+    <category>
+        <pattern>PLACA VIDEO LAPTOP</pattern>
+        <template>
+            <delay>1</delay>
+            Aveti vreo preferinta legata de placa video? (GPU)?
+            <think>
+                <set name="topic">PLACA VIDEO</set>
+            </think>
+        </template>
+    </category>
+    <!--TESTAT-->
+    
+    
+    <!--PREFERINTA RAM LAPTOP-->
+    <category>
+        <pattern>RAM LAPTOP</pattern>
+        <template>
+            <delay>1</delay>
+            Aveti vreo preferinta legata de capacitatea laptop-ului (RAM)?
+            <think>
+                <set name="topic">RAM</set>
+            </think>
+        </template>
+    </category>
+    <!--TESTAT-->
+    
+    
+    <!--PREFERINTA HDD LAPTOP-->
+    <category>
+        <pattern>HDD LAPTOP</pattern>
+        <template>
+            <delay>1</delay>
+            Doriti ca laptop-ul sa includa un Hard Disk Drive (HDD)?
+            <think>
+                <set name="topic">HDD</set>
+            </think>
+        </template>
+    </category>
+    <!--TESTAT-->
+    
+    
+    <!--PREFERINTA SSD LAPTOP-->
+    <category>
+        <pattern>SSD LAPTOP</pattern>
+        <template>
+            <delay>1</delay>
+            Doriti ca laptop-ul sa contina un Solid State Disk (SSD)?
+            <think>
+                <set name="topic">SSD</set>
+            </think>
+        </template>
+    </category>
+    <!--TESTAT-->
+    
+    
+    <!--PREFERINTA SO LAPTOP-->
+    <category>
+        <pattern>SO LAPTOP</pattern>
+        <template>
+            <delay>1</delay>
+            Doriti ca laptop-ul sa vina cu un sistem de operare preinstalat?
+            <think>
+                <set name="topic">SO</set>
+            </think>
+        </template>
+    </category>
+    <!--TESTAT-->
+    
+    
+    <!--AFISARE REZULTATE-->
+    <category>
+        <pattern>REZULTATE</pattern>
+        <template>
+            <think>
+                <set name="topic">REZULTATE</set>
+            </think>
+            <srai>CALCULEAZA REZULTATE</srai>
+        </template>
+    </category>
+    
+    
+</aiml>

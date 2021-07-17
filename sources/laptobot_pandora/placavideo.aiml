@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+    <!--PLACA VIDEO PENTRU LAPTOP-->
+	<topic name="PLACA VIDEO">
+	    
+	    
+	    <!--RASPUNS AFIRMATIV-->
+    	<category>
+           <pattern>^ <set>afirmativ</set> ^</pattern>
+           <template>
+                <delay>1</delay>
+                De la ce producator ati dori sa fie placa video
+                <reply>
+                    <text>AMD</text>
+                    <postback>amd</postback>
+                </reply>
+                
+                <reply>
+                    <text>Intel</text>
+                    <postback>intel</postback>
+                </reply>
+                
+                <reply>
+                    <text>NVIDIA</text>
+                    <postback>nvidia</postback>
+                </reply>
+                ? Va rog sa alegeti una din variantele de mai jos.
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Va rog sa alegeti una din variantele de mai jos</that>
+            <pattern>AMD</pattern>
+            <template>
+                <!--SETARE PLACA VIDEO-->   
+	            <think><set name="placa video">amd</set></think>
+	            
+	            <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE PLACA VIDEO AM ALES</pattern>
+                        <template>Ati ales AMD ca producator pentru placa video.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Aceste placi video sunt, de obice, dedicate.
+                
+                <delay>1</delay>
+                Sunt mai puternice decat cele integrate, dar au un consum al energiei mai mare. <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Va rog sa alegeti una din variantele de mai jos</that>
+            <pattern>INTEL</pattern>
+            <template>
+                <!--SETARE PLACA VIDEO-->   
+	            <think><set name="placa video">intel</set></think>
+	            
+	            <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE PLACA VIDEO AM ALES</pattern>
+                        <template>Ati ales Intel ca producator pentru placa video.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Tipul acesta de placa video este integrat.
+                
+                <delay>1</delay>
+                Sunt folosite pentru economisirea energiei, insa nu sunt la fel de puternice ca cele dedicate. <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Va rog sa alegeti una din variantele de mai jos</that>
+            <pattern>nvidia</pattern>
+            <template>
+                <!--SETARE PLACA VIDEO-->   
+	            <think><set name="placa video">nvidia</set></think>
+	            
+	            <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE PLACA VIDEO AM ALES</pattern>
+                        <template>Ati ales NVIDIA ca producator pentru placa video.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Acest tip de placa video este dedicat.
+                
+                <delay>1</delay>
+                Majoritatea sunt foarte bune cand vine vorba sarcini cu putere de calcul mare. <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Va rog sa alegeti una din variantele de mai jos</that>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Nu am putut gasi placa video
+                <reply>
+                    <text>AMD</text>
+                    <postback>amd</postback>
+                </reply>
+                
+                <reply>
+                    <text>Intel</text>
+                    <postback>intel</postback>
+                </reply>
+                
+                <reply>
+                    <text>NVIDIA</text>
+                    <postback>nvidia</postback>
+                </reply>
+                . Va rog sa alegeti una din variantele de mai jos.
+            </template>
+        </category>
+        
+        
+	    <!--RASPUNS NEGATIV-->
+	    <category>
+	        <pattern>^ <set>negativ</set> ^</pattern>
+	        <template>
+	            <!--SETARE PLACA VIDEO-->   
+	            <think><set name="placa video">unknown</set></think>
+	            
+	            <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE PLACA VIDEO AM ALES</pattern>
+                        <template>Nu ati avut vreo preferinta legata de placa video.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+	            In regula, <srai>AFISEAZA TOT SAU CONTINUA</srai>
+	        </template>
+        </category>
+        
+        <!--ALT RASPUNS DECAT AFIRMATIV SAU NEGATIV-->
+        <category>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Va rog sa raspundeti cu DA sau NU.
+            </template>
+        </category>
+        
+        
+        <!--AFISEAZA TOT SAU CONTINUA-->
+        <category>
+            <pattern>AFISEAZA TOT SAU CONTINUA</pattern>
+            <template>
+                Continuati cu urmatoarea categorie?
+            </template>
+        </category>
+        
+        
+        <!--CONTINUARE-->
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^ <set>afirmativ</set> ^</pattern>
+            <template>
+                <!--IESIRE DIN TOPIC-->
+                <think>
+                    <set name="topic">*</set>
+                </think>
+                
+                <!--CONTINUARE CU RAM LAPTOP-->
+                <srai>RAM LAPTOP</srai>
+            </template>
+        </category>
+        
+        
+        <!--AFISEAZA REZULTATE-->
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^ <set>negativ</set> ^</pattern>
+            <template>
+                <!--IESIRE DIN TOPIC-->
+                <think>
+                    <set name="topic">*</set>
+                </think>
+                
+                <!--AFISEZ REZULTATE-->
+                <srai>REZULTATE</srai>
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Va rog sa raspundeti cu DA sau NU.
+                <split/>
+                Deci, <lowercase><srai>AFISEAZA TOT SAU CONTINUA</srai></lowercase>
+            </template>
+        </category>
+        
+	</topic>
+	
+	
+</aiml>

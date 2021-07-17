@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    
+    
+    <!--BUGET PENTRU LAPTOP-->
+    <topic name="BUGET">
+        <!--RASPUNS AFIRMATIV-->
+        <category>
+            <pattern>^ <set>afirmativ</set> ^</pattern>
+            <template>
+                <delay>1</delay>
+                In regula. Care este bugetul maxim in lei?
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Care este bugetul maxim in lei</that>
+            <pattern><set>bugete</set></pattern>
+            <template>
+                <!--SETARE BUGET-->
+                <think>
+                    <set name="buget"><star/></set>
+                    <set name="bugetMapped"><map name="bugetmapping"><get name="buget"/></map></set>
+                </think>
+                
+                <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE BUGET AM ALES</pattern>
+                        <template>Mi-ati spus ca vreti sa va incadrati in <get name="buget"/> lei.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Deci bugetul este de <get name="buget" /> lei.
+                <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Care este bugetul maxim in lei</that>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Va rog sa introduceti doar suma in format numeric (1000, 1100, 1200 etc).
+                
+                <delay>1</delay>
+                Deci, care este bugetul maxim in lei?
+            </template>
+        </category>
+        
+        
+        <!--RASPUNS NEGATIV-->
+        <category>
+            <pattern>^ <set>negativ</set> ^</pattern>
+            <template>
+                <!--SETARE BUGET-->
+                <think>
+                    <set name="buget">unknown</set>
+                </think>
+                
+                <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE BUGET AM ALES</pattern>
+                        <template>Nu ati ales niciun buget.</template>
+                    </category>
+                </learn>
+                
+                <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+        
+        <!--ALT RASPUNS DECAT AFIRMATIV SAU NEGATIV-->
+        <category>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Va rog sa raspundeti cu DA sau NU.
+            </template>
+        </category>
+    
+    
+        <!--AFISEAZA TOT SAU CONTINUA-->
+        <category>
+            <pattern>AFISEAZA TOT SAU CONTINUA</pattern>
+            <template>
+                Continuati cu urmatoarea categorie?
+            </template>
+        </category>
+        
+        <!--CONTINUARE-->
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^ <set>afirmativ</set> ^</pattern>
+            <template>
+                <!--IESIRE DIN TOPIC-->
+                <think>
+                    <set name="topic">*</set>
+                </think>
+                
+                <!--CONTINUARE CU PRODUCTOR LAPTOP-->
+                <srai>PRODUCATOR LAPTOP</srai>
+            </template>
+        </category>
+        
+        <!--AFISEAZA REZULTATE-->
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^ <set>negativ</set> ^</pattern>
+            <template>
+                <!--IESIRE DIN TOPIC-->
+                <think>
+                    <set name="topic">*</set>
+                </think>
+                
+                <!--AFISEZ REZULTATE-->
+                <srai>REZULTATE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Va rog sa raspundeti cu DA sau NU.
+                <split/>
+                Deci, <lowercase><srai>AFISEAZA TOT SAU CONTINUA</srai></lowercase>
+            </template>
+        </category>
+    
+    </topic>
+    
+    
+</aiml>

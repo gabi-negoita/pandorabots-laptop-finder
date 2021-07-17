@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+    <!--RAM PENTRU LAPTOP-->
+	<topic name="RAM">
+	    
+	    
+	    <!--RASPUNS AFIRMATIV-->
+    	<category>
+           <pattern>^ <set>afirmativ</set> ^</pattern>
+           <template>
+                <delay>1</delay>
+                Cata capacitate ati dori
+                <reply>
+                    <text>4 GB</text>
+                    <postback>4gb</postback>
+                </reply>
+                
+                <reply>
+                    <text>8 GB</text>
+                    <postback>8gb</postback>
+                </reply>
+                
+                <reply>
+                    <text>16 GB</text>
+                    <postback>16gb</postback>
+                </reply>
+                
+                <reply>
+                    <text>32 GB</text>
+                    <postback>32gb</postback>
+                </reply>
+                ? Va rog sa alegeti una din variantele de mai jos.
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Va rog sa alegeti una din variantele de mai jos</that>
+            <pattern>4gb</pattern>
+            <template>
+                <!--SETARE RAM-->
+	            <think><set name="ram">4</set></think>
+	            
+	            <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CAT RAM AM ALES</pattern>
+                        <template>Ati ales 4 GB de RAM.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Am inteles, 4 GB de ram. <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Va rog sa alegeti una din variantele de mai jos</that>
+            <pattern>8gb</pattern>
+            <template>
+                <!--SETARE RAM-->
+	            <think><set name="ram">8</set></think>
+	            
+	            <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CAT RAM AM ALES</pattern>
+                        <template>Ati ales 8 GB de RAM.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Am inteles, 8 GB de ram. <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Va rog sa alegeti una din variantele de mai jos</that>
+            <pattern>16gb</pattern>
+            <template>
+                <!--SETARE RAM-->
+	            <think><set name="ram">16</set></think>
+	            
+	            <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CAT RAM AM ALES</pattern>
+                        <template>Ati ales 16 GB de RAM.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Am inteles, 16 GB de ram. <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Va rog sa alegeti una din variantele de mai jos</that>
+            <pattern>32gb</pattern>
+            <template>
+                <!--SETARE RAM-->
+	            <think><set name="ram">32</set></think>
+	            
+	            <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CAT RAM AM ALES</pattern>
+                        <template>Ati ales 32 GB de RAM.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Am inteles, 32 GB de ram. <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Va rog sa alegeti una din variantele de mai jos</that>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Avem doar variantele urmatoare
+                
+                <reply>
+                    <text>4 GB</text>
+                    <postback>4gb</postback>
+                </reply>
+                
+                <reply>
+                    <text>8 GB</text>
+                    <postback>8gb</postback>
+                </reply>
+                
+                <reply>
+                    <text>16 GB</text>
+                    <postback>16gb</postback>
+                </reply>
+                
+                <reply>
+                    <text>32 GB</text>
+                    <postback>32gb</postback>
+                </reply>
+                . Va rog sa alegeti una din variantele de mai jos.
+            </template>
+        </category>
+        
+        
+	    <!--RASPUNS NEGATIV-->
+	    <category>
+	        <pattern>^ <set>negativ</set> ^</pattern>
+	        <template>
+                <!--SETARE RAM-->
+	            <think><set name="ram">unknown</set></think>
+	            
+	            <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CAT RAM AM ALES</pattern>
+                        <template>Nu ati avut vreo preferinta legata de capacitatea RAM.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+	            In regula, <srai>AFISEAZA TOT SAU CONTINUA</srai>
+	        </template>
+        </category>
+        
+        
+        <!--ALT RASPUNS DECAT AFIRMATIV SAU NEGATIV-->
+        <category>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Va rog sa raspundeti cu DA sau NU.
+            </template>
+        </category>
+        
+        
+        <!--AFISEAZA TOT SAU CONTINUA-->
+        <category>
+            <pattern>AFISEAZA TOT SAU CONTINUA</pattern>
+            <template>
+                Continuati cu urmatoarea categorie?
+            </template>
+        </category>
+        
+        
+        <!--CONTINUARE-->
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^ <set>afirmativ</set> ^</pattern>
+            <template>
+                <!--IESIRE DIN TOPIC-->
+                <think>
+                    <set name="topic">*</set>
+                </think>
+                
+                <!--CONTINUARE CU HDD LAPTOP-->
+                <srai>HDD LAPTOP</srai>
+            </template>
+        </category>
+        
+        
+        <!--AFISEAZA REZULTATE-->
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^ <set>negativ</set> ^</pattern>
+            <template>
+                <!--IESIRE DIN TOPIC-->
+                <think>
+                    <set name="topic">*</set>
+                </think>
+                
+                <!--AFISEZ REZULTATE-->
+                <srai>REZULTATE</srai>
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Va rog sa raspundeti cu DA sau NU.
+                <split/>
+                Deci, <lowercase><srai>AFISEAZA TOT SAU CONTINUA</srai></lowercase>
+            </template>
+        </category>
+        
+	</topic>
+	
+	
+</aiml>

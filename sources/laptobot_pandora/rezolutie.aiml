@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+    <!--REZOLUTIE PENTRU LAPTOP-->
+	<topic name="REZOLUTIE">
+	    
+	    
+	    <!--RASPUNS AFIRMATIV-->
+    	<category>
+           <pattern>^ <set>afirmativ</set> ^</pattern>
+           <template>
+                <delay>1</delay>
+                Ce rezolutie ati prefera
+                <reply>
+                    <text>1280 x 720 (HD)</text>
+                    <postback>hd</postback>
+                </reply>
+                
+                <reply>
+                    <text>1920 x 1080 (Full HD)</text>
+                    <postback>fhd</postback>
+                </reply>
+                
+                <reply>
+                    <text>2560 x 1600 (MacOS)</text>
+                    <postback>macres1</postback>
+                </reply>
+                
+                <reply>
+                    <text>2880 x 1800 (MacOS)</text>
+                    <postback>macres2</postback>
+                </reply>
+                
+                <reply>
+                    <text>3072 x 1920 (MacOS)</text>
+                    <postback>macres3</postback>
+                </reply>
+                ? Va rog sa alegeti una din variante.
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Va rog sa alegeti una din variante</that>
+            <pattern>hd</pattern>
+            <template>
+                <!--SETARE REZOLUTIE-->
+	            <think><set name="rezolutie">1280x720</set></think>
+                
+                <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE REZOLUTIE AM ALES</pattern>
+                        <template>Ati preferat rezolutia de  1280 x 720 pixeli.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Rezolutia de 1280 x 720 pixeli este din ce in ce mai putin intalnita. <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+                
+        <category>
+            <that>Va rog sa alegeti una din variante</that>
+            <pattern>fhd</pattern>
+            <template>
+                <!--SETARE REZOLUTIE-->
+	            <think><set name="rezolutie">1920x1080</set></think>
+                
+                <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE REZOLUTIE AM ALES</pattern>
+                        <template>Ati preferat rezolutia de  1920 x 1080 pixeli.</template>
+                    </category>
+                </learn>
+
+                <delay>1</delay>
+                Rezolutia 1920 x 1080 este intalnita pe marea majoritate a laptop-urilor. <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+                
+        <category>
+            <that>Va rog sa alegeti una din variante</that>
+            <pattern>macres1</pattern>
+            <template>
+                <!--SETARE REZOLUTIE-->
+	            <think><set name="rezolutie">2560x1600</set></think>
+	            
+                <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE REZOLUTIE AM ALES</pattern>
+                        <template>Ati preferat rezolutia de  2560 x 1600 pixeli.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Aceasta rezolutie este intalnita de obicei pe laptop-urile de la Apple. <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+                
+        <category>
+            <that>Va rog sa alegeti una din variante</that>
+            <pattern>macres2</pattern>
+            <template>
+                <!--SETARE REZOLUTIE-->
+	            <think><set name="rezolutie">2880x1800</set></think>
+	            
+                <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE REZOLUTIE AM ALES</pattern>
+                        <template>Ati preferat rezolutia de  2880 x 1800 pixeli.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Aceasta rezolutie este intalnita de obicei pe laptop-urile de la Apple. <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+                
+        <category>
+            <that>Va rog sa alegeti una din variante</that>
+            <pattern>macres3</pattern>
+            <template>
+                <!--SETARE REZOLUTIE-->
+	            <think><set name="rezolutie">3072x1920</set></think>
+	            
+                <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE REZOLUTIE AM ALES</pattern>
+                        <template>Ati preferat rezolutia de  3072 x 1920 pixeli.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Aceasta rezolutie este intalnita de obicei pe laptop-urile de la Apple. <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Va rog sa alegeti una din variante</that>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Avem doar variantele urmatoare
+                <reply>
+                    <text>1280 x 720 (HD)</text>
+                    <postback>hd</postback>
+                </reply>
+                
+                <reply>
+                    <text>1920 x 1080 (Full HD)</text>
+                    <postback>fhd</postback>
+                </reply>
+                
+                <reply>
+                    <text>2560 x 1600 (MacOS)</text>
+                    <postback>macres1</postback>
+                </reply>
+                
+                <reply>
+                    <text>2880 x 1800 (MacOS)</text>
+                    <postback>macres2</postback>
+                </reply>
+                
+                <reply>
+                    <text>3072 x 1920 (MacOS)</text>
+                    <postback>macres3</postback>
+                </reply>
+                . Va rog sa alegeti una din variante.
+            </template>
+        </category>
+        
+        
+	    <!--RASPUNS NEGATIV-->
+	    <category>
+	        <pattern>^ <set>negativ</set> ^</pattern>
+	        <template>
+	            <!--SETARE REZOLUTIE-->
+	            <think><set name="rezolutie">unknown</set></think>
+	            
+                <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE REZOLUTIE AM ALES</pattern>
+                        <template>Nu ati ales nicio rezolutie.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+	            In regula, <lowercase><srai>AFISEAZA TOT SAU CONTINUA</srai></lowercase>
+	        </template>
+        </category>
+        
+        
+        <!--ALT RASPUNS DECAT AFIRMATIV SAU NEGATIV-->
+        <category>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Va rog sa raspundeti cu DA sau NU.
+            </template>
+        </category>
+        
+        
+        <!--AFISEAZA TOT SAU CONTINUA-->
+        <category>
+            <pattern>AFISEAZA TOT SAU CONTINUA</pattern>
+            <template>
+                Continuati cu urmatoarea categorie?
+            </template>
+        </category>
+        
+        
+        <!--CONTINUARE-->
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^ <set>afirmativ</set> ^</pattern>
+            <template>
+                <!--IESIRE DIN TOPIC-->
+                <think>
+                    <set name="topic">*</set>
+                </think>
+                
+   	            <!--CONTINUARE CU RATA REIMPROSPATARE LAPTOP-->
+	            <srai>RATA REIMPROSPATARE LAPTOP</srai>
+            </template>
+        </category>
+        
+        
+        <!--AFISEAZA REZULTATE-->
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^ <set>negativ</set> ^</pattern>
+            <template>
+                <!--IESIRE DIN TOPIC-->
+                <think>
+                    <set name="topic">*</set>
+                </think>
+                
+                <!--AFISEZ REZULTATE-->
+                <srai>REZULTATE</srai>
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Va rog sa raspundeti cu DA sau NU.
+                <split/>
+                Deci, <lowercase><srai>AFISEAZA TOT SAU CONTINUA</srai></lowercase>
+            </template>
+        </category> 
+
+        
+	</topic>
+
+</aiml>

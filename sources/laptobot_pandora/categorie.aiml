@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+    <!--CATEGORIE PENTRU LAPTOP-->
+	<topic name="CATEGORIE">
+	    
+	    
+	    <!--RASPUNS AFIRMATIV-->
+    	<category>
+           <pattern>^ <set>afirmativ</set> ^</pattern>
+           <template>
+                <delay>1</delay>
+                Ce tip de laptop ati dori
+                
+                <reply>
+                    <text>Business</text>
+                    <postback>business</postback>
+                </reply>
+                
+                <reply>
+                    <text>Gaming</text>
+                    <postback>gaming</postback>
+                </reply>
+                ? 
+                
+                <delay>1</delay>
+                Variantele sunt afisate mai sus. Va rog sa alegeti una din cele doua.
+            </template>
+        </category>
+        
+        <category>
+            <that>Va rog sa alegeti una din cele doua</that>
+            <pattern>business</pattern>
+            <template>
+                <!--SETARE PRODUCATOR-->
+	            <think><set name="categorie">business</set></think>
+	            
+	             <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE CATEGORIE AM ALES</pattern>
+                        <template>Mi-ati spus ca ati prefera laptop de tip BUSINESS.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Laptop-urile de tip business sunt folosite pentru munca. 
+                
+                <delay>1</delay>
+                Acestea sunt perfecte pentru activitati de tip office. <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+        <category>
+            <that>Va rog sa alegeti una din cele doua</that>
+            <pattern>gaming</pattern>
+            <template>
+                <!--SETARE PRODUCATOR-->
+	            <think><set name="categorie">gaming</set></think>
+	            
+	             <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE CATEGORIE AM ALES</pattern>
+                        <template>Mi-ati spus ca ati prefera laptop de tip GAMING.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Laptop-urile de tip gaming sunt folosite pentru activitati 
+                ce necesita performante ridicate.
+                
+                <delay>1</delay>
+                Acestea sunt perfecte pentru jocuri video, editare sau randare. <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+        <category>
+            <that>Va rog sa alegeti una din cele doua</that>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Sunt doua variante
+                
+                <reply>
+                    <text>Business</text>
+                    <postback>business</postback>
+                </reply>
+                
+                <reply>
+                    <text>Gaming</text>
+                    <postback>gaming</postback>
+                </reply>
+                . Va rog sa alegeti una din cele doua.
+            </template>
+        </category>
+        
+	    <!--RASPUNS NEGATIV-->
+	    <category>
+	        <pattern>^ <set>negativ</set> ^</pattern>
+	        <template>
+                <!--SETARE CATEGORIE-->
+                <think>
+                    <set name="categorie">unknown</set>
+                </think>
+                
+                <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE CATEGORIE AM ALES</pattern>
+                        <template>Nu ati avut vreo preferinta legata de categorie.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                In regula, <lowercase><srai>AFISEAZA TOT SAU CONTINUA</srai></lowercase>
+	        </template>
+        </category>
+        
+        <!--ALT RASPUNS DECAT AFIRMATIV SAU NEGATIV-->
+        <category>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Va rog sa raspundeti cu DA sau NU.
+            </template>
+        </category>
+        
+          <!--AFISEAZA TOT SAU CONTINUA-->
+        <category>
+            <pattern>AFISEAZA TOT SAU CONTINUA</pattern>
+            <template>
+                Continuati cu urmatoarea categorie?
+            </template>
+        </category>
+        
+        <!--CONTINUARE-->
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^ <set>afirmativ</set> ^</pattern>
+            <template>
+                <!--IESIRE DIN TOPIC-->
+                <think>
+                    <set name="topic">*</set>
+                </think>
+                
+                <!--CONTINUARE CU DIAGONALA LAPTOP-->
+                <srai>DIAGONALA LAPTOP</srai>
+            </template>
+        </category>
+        
+        <!--AFISEAZA REZULTATE-->
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^ <set>negativ</set> ^</pattern>
+            <template>
+                <!--IESIRE DIN TOPIC-->
+                <think>
+                    <set name="topic">*</set>
+                </think>
+                
+                <!--AFISEZ REZULTATE-->
+                <srai>REZULTATE</srai>
+            </template>
+        </category>
+        
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Va rog sa raspundeti cu DA sau NU.
+                <split/>
+                Deci, <lowercase><srai>AFISEAZA TOT SAU CONTINUA</srai></lowercase>
+            </template>
+        </category>
+        
+	</topic>
+</aiml>

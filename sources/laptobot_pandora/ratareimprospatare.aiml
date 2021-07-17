@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+    <!--RATA REIMPROSPATARE PENTRU LAPTOP-->
+	<topic name="RATA REIMPROSPATARE">
+	    
+	    
+	    <!--RASPUNS AFIRMATIV-->
+    	<category>
+           <pattern>^ <set>afirmativ</set> ^</pattern>
+           <template>
+                <delay>1</delay>
+                Ce rata de reimprospatare ati prefera
+                <reply>
+                    <text>60 Hz</text>
+                    <postback>60hz</postback>
+                </reply>
+                
+                <reply>
+                    <text>120 Hz</text>
+                    <postback>120hz</postback>
+                </reply>
+                
+                <reply>
+                    <text>144 Hz</text>
+                    <postback>144hz</postback>
+                </reply>
+                ? Va rog sa alegeti una din variante.
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Va rog sa alegeti una din variante</that>
+            <pattern>60HZ</pattern>
+            <template>
+                <!--SETARE RATA REIMPROSPATARE-->
+	            <think><set name="rata reimprospatare">60</set></think>
+                
+                <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE RATA DE IMPROSPATARE AM ALES</pattern>
+                        <template>Mi-ati spus ca preferati laptop-urile care au rata de improspatare la ecran de 60 Hz.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Rata de 60 Hz este intalnita pe majoritatea laptop-urilor. <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Va rog sa alegeti una din variante</that>
+            <pattern>120HZ</pattern>
+            <template>
+                <!--SETARE RATA REIMPROSPATARE-->
+	            <think><set name="rata reimprospatare">120</set></think>
+                
+                <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE RATA DE IMPROSPATARE AM ALES</pattern>
+                        <template>Mi-ati spus ca preferati laptop-urile care au rata de improspatare la ecran de 120 Hz.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Aceasta rata de reimprospatare (120 Hz) este intalnita pe unele laptop-uri de gaming. <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+
+
+        <category>
+            <that>Va rog sa alegeti una din variante</that>
+            <pattern>144HZ</pattern>
+            <template>
+                <!--SETARE RATA REIMPROSPATARE-->
+	            <think><set name="rata reimprospatare">144</set></think>
+                
+                <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE RATA DE IMPROSPATARE AM ALES</pattern>
+                        <template>Mi-ati spus ca preferati laptop-urile care au rata de improspatare la ecran de 144 Hz.</template>
+                    </category>
+                </learn>
+                
+                <delay>1</delay>
+                Rata de 144 Hz este intalnita pe laptop-urile de gaming, in general pe cele cu specificatii High-End. <srai>AFISEAZA TOT SAU CONTINUA</srai>
+            </template>
+        </category>
+                
+                
+        <category>
+            <that>Va rog sa alegeti una din variante</that>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Avem doar variantele urmatoare
+                <reply>
+                    <text>60 Hz</text>
+                    <postback>60hz</postback>
+                </reply>
+                
+                <reply>
+                    <text>120 Hz</text>
+                    <postback>120hz</postback>
+                </reply>
+                
+                <reply>
+                    <text>144 Hz</text>
+                    <postback>144hz</postback>
+                </reply>
+                . Va rog sa alegeti una din variante.
+            </template>
+        </category>
+        
+        
+	    <!--RASPUNS NEGATIV-->
+	    <category>
+	        <pattern>^ <set>negativ</set> ^</pattern>
+	        <template>
+	            <!--SETARE RATA REIMPROSPATARE-->
+	            <think><set name="rata reimprospatare">unknown</set></think>
+                
+                <!--INVATA RASPUNSURI-->
+                <learn>
+                    <category>
+                        <pattern>CE RATA DE IMPROSPATARE AM ALES</pattern>
+                        <template>Nu ati ales.</template>
+                    </category>
+                </learn>
+                
+	            <!--<delay>1</delay>-->
+	            In regula, <lowercase><srai>AFISEAZA TOT SAU CONTINUA</srai></lowercase>
+	        </template>
+        </category>
+        
+        
+        <!--ALT RASPUNS DECAT AFIRMATIV SAU NEGATIV-->
+        <category>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Va rog sa raspundeti cu DA sau NU.
+            </template>
+        </category>
+        
+        
+        <!--AFISEAZA TOT SAU CONTINUA-->
+        <category>
+            <pattern>AFISEAZA TOT SAU CONTINUA</pattern>
+            <template>
+                Continuati cu urmatoarea categorie?
+            </template>
+        </category>
+        
+        
+        <!--CONTINUARE-->
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^ <set>afirmativ</set> ^</pattern>
+            <template>
+                <!--IESIRE DIN TOPIC-->
+                <think>
+                    <set name="topic">*</set>
+                </think>
+                
+                <!--CONTINUARE CU PROCESOR LAPTOP-->
+                <srai>PROCESOR LAPTOP</srai>
+            </template>
+        </category>
+        
+        
+        <!--AFISEAZA REZULTATE-->
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^ <set>negativ</set> ^</pattern>
+            <template>
+                <!--IESIRE DIN TOPIC-->
+                <think>
+                    <set name="topic">*</set>
+                </think>
+                
+                <!--AFISEZ REZULTATE-->
+                <srai>REZULTATE</srai>
+            </template>
+        </category>
+        
+        
+        <category>
+            <that>Continuati cu urmatoarea categorie</that>
+            <pattern>^</pattern>
+            <template>
+                <delay>1</delay>
+                Va rog sa raspundeti cu DA sau NU.
+                <split/>
+                Deci, <lowercase><srai>AFISEAZA TOT SAU CONTINUA</srai></lowercase>
+            </template>
+        </category>
+        
+	</topic>
+
+
+</aiml>
